@@ -1,0 +1,679 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+html {
+scroll-behavior: smooth;
+overflow-x: hidden;
+}
+
+body {
+width: 100%;
+min-width: 0;
+overflow-x: hidden;
+background: #071812;
+color: #f8f2df;
+font-family: “Cormorant Garamond”, serif;
+}
+
+/* ================= PARTICLES ================= */
+
+.particles {
+position: fixed;
+inset: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+overflow: hidden;
+z-index: 50;
+}
+
+.particles span {
+position: absolute;
+color: #d8b96d;
+opacity: 0;
+animation: floatingStars 7s infinite ease-in-out;
+}
+
+.particles span:nth-child(1) {
+left: 8%;
+top: 18%;
+animation-delay: 0s;
+}
+
+.particles span:nth-child(2) {
+left: 82%;
+top: 12%;
+animation-delay: 1s;
+}
+
+.particles span:nth-child(3) {
+left: 20%;
+top: 65%;
+animation-delay: 2s;
+}
+
+.particles span:nth-child(4) {
+left: 90%;
+top: 70%;
+animation-delay: 3s;
+}
+
+.particles span:nth-child(5) {
+left: 50%;
+top: 15%;
+animation-delay: 4s;
+}
+
+.particles span:nth-child(6) {
+left: 72%;
+top: 82%;
+animation-delay: 2.5s;
+}
+
+.particles span:nth-child(7) {
+left: 32%;
+top: 40%;
+animation-delay: 1.5s;
+}
+
+.particles span:nth-child(8) {
+left: 60%;
+top: 55%;
+animation-delay: 4.5s;
+}
+
+@keyframes floatingStars {
+
+0% {
+    opacity: 0;
+    transform: translateY(25px) scale(.7);
+}
+30% {
+    opacity: .8;
+}
+70% {
+    opacity: .35;
+}
+100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(1.2);
+}
+
+}
+
+/* ================= COMMON ================= */
+
+.scene {
+position: relative;
+width: 100%;
+min-height: 100svh;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+overflow: hidden;
+padding: 60px 20px;
+}
+
+/* ================= OPENING ================= */
+
+.opening {
+background:
+radial-gradient(
+circle at 50% 42%,
+rgba(67, 112, 82, .35),
+transparent 35%
+),
+linear-gradient(
+145deg,
+#04100c,
+#0a2017 55%,
+#04100c
+);
+}
+
+.opening-glow {
+position: absolute;
+width: 420px;
+height: 420px;
+max-width: 90vw;
+max-height: 90vw;
+border-radius: 50%;
+background: rgba(203, 169, 91, .08);
+filter: blur(70px);
+animation: breathingGlow 5s infinite alternate;
+}
+
+@keyframes breathingGlow {
+
+from {
+    transform: scale(.85);
+    opacity: .4;
+}
+to {
+    transform: scale(1.15);
+    opacity: .9;
+}
+
+}
+
+.opening-content {
+position: relative;
+z-index: 2;
+width: 100%;
+max-width: 600px;
+animation: openingIn 1.8s ease forwards;
+}
+
+@keyframes openingIn {
+
+from {
+    opacity: 0;
+    transform: translateY(25px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+}
+
+.bismillah {
+font-size: clamp(20px, 5vw, 28px);
+color: #d9bd78;
+line-height: 1.6;
+}
+
+.gold-line {
+width: 110px;
+max-width: 35%;
+height: 1px;
+margin: 18px auto;
+background: linear-gradient(
+to right,
+transparent,
+#c9a85c,
+transparent
+);
+}
+
+.az-manzil {
+font-family: “Playfair Display”, serif;
+font-size: clamp(21px, 6vw, 29px);
+letter-spacing: clamp(5px, 2vw, 10px);
+color: #e2c77f;
+}
+
+.tagline {
+margin-top: 12px;
+font-size: 11px;
+letter-spacing: 4px;
+color: #a6aa9b;
+}
+
+/* ================= HOUSE ================= */
+
+.house-icon {
+position: relative;
+width: 145px;
+height: 125px;
+margin: 55px auto 30px;
+animation: houseFloat 4s ease-in-out infinite;
+}
+
+@keyframes houseFloat {
+
+0%,
+100% {
+    transform: translateY(0);
+}
+50% {
+    transform: translateY(-8px);
+}
+
+}
+
+.roof {
+position: absolute;
+width: 100px;
+height: 100px;
+left: 22px;
+top: 5px;
+border-left: 2px solid #c9a85c;
+border-top: 2px solid #c9a85c;
+transform: rotate(45deg);
+border-radius: 7px;
+}
+
+.house-body {
+position: absolute;
+width: 105px;
+height: 75px;
+left: 20px;
+top: 45px;
+background: #0d291e;
+border: 2px solid #c9a85c;
+}
+
+.window {
+position: absolute;
+width: 18px;
+height: 22px;
+top: 17px;
+border: 1px solid #c9a85c;
+}
+
+.window.left {
+left: 8px;
+}
+
+.window.right {
+right: 8px;
+}
+
+.door {
+position: absolute;
+width: 24px;
+height: 42px;
+left: 39px;
+bottom: 0;
+border: 1px solid #c9a85c;
+}
+
+.opening-caption {
+font-size: 18px;
+color: #c0c1b4;
+}
+
+.scroll-indicator {
+margin-top: 42px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+color: #8f9587;
+font-size: 10px;
+letter-spacing: 3px;
+}
+
+.scroll-indicator b {
+font-size: 20px;
+font-weight: 400;
+animation: arrowDown 1.5s infinite;
+}
+
+@keyframes arrowDown {
+
+50% {
+    transform: translateY(7px);
+    opacity: .35;
+}
+
+}
+
+/* ================= INVITATION ================= */
+
+.invitation {
+background:
+radial-gradient(
+circle at 10% 15%,
+rgba(178, 144, 70, .10),
+transparent 28%
+),
+radial-gradient(
+circle at 90% 85%,
+rgba(54, 98, 72, .12),
+transparent 30%
+),
+#f5f0df;
+
+color: #203c2d;
+
+}
+
+.invitation-content {
+width: 100%;
+max-width: 680px;
+position: relative;
+z-index: 2;
+}
+
+.invitation::before {
+content: “”;
+position: absolute;
+inset: 16px;
+border: 1px solid rgba(154, 124, 62, .45);
+pointer-events: none;
+}
+
+.eyebrow {
+font-size: clamp(10px, 2.8vw, 13px);
+letter-spacing: clamp(2px, 1vw, 4px);
+color: #98783c;
+margin-bottom: 22px;
+}
+
+.invitation h1 {
+width: 100%;
+max-width: 650px;
+margin: 0 auto;
+font-family: “Playfair Display”, serif;
+font-size: clamp(38px, 9.5vw, 72px);
+line-height: 1.02;
+font-weight: 500;
+overflow-wrap: normal;
+word-break: normal;
+}
+
+.invitation h1 span {
+display: block;
+margin-top: 10px;
+color: #9b793b;
+font-style: italic;
+}
+
+.gold-symbol {
+margin: 25px 0;
+color: #b28d4a;
+font-size: 25px;
+}
+
+.invite-text {
+font-size: clamp(17px, 4.5vw, 21px);
+line-height: 1.5;
+color: #4f584e;
+}
+
+.host-label {
+margin-top: 28px;
+font-size: 11px;
+letter-spacing: 4px;
+color: #98783c;
+}
+
+.host-name {
+margin-top: 6px;
+font-family: “Playfair Display”, serif;
+font-size: clamp(27px, 7vw, 34px);
+color: #315a43;
+}
+
+.short-line {
+width: 60px;
+height: 1px;
+margin: 14px auto;
+background: #c9a85c;
+}
+
+/* ================= DATE ================= */
+
+.date-area {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+gap: 15px;
+margin: 22px auto;
+}
+
+.date-number {
+font-family: “Playfair Display”, serif;
+font-size: clamp(48px, 12vw, 65px);
+line-height: 1;
+color: #9b793b;
+}
+
+.date-details {
+text-align: left;
+padding-left: 15px;
+border-left: 1px solid #c8ad70;
+}
+
+.date-details strong {
+display: block;
+font-family: “Playfair Display”, serif;
+font-size: 16px;
+letter-spacing: 3px;
+color: #315a43;
+}
+
+.date-details span {
+display: block;
+margin-top: 3px;
+color: #777166;
+font-size: 16px;
+}
+
+.date-evening {
+font-size: 12px;
+letter-spacing: 2px;
+color: #98783c;
+}
+
+.date-evening span {
+margin: 0 4px;
+}
+
+.presence-text {
+margin-top: 15px;
+font-size: 17px;
+color: #777166;
+line-height: 1.45;
+}
+
+/* ================= VENUE ================= */
+
+.venue-scene {
+background:
+radial-gradient(
+circle at center,
+rgba(50, 100, 70, .35),
+transparent 45%
+),
+#092017;
+}
+
+.venue-content {
+width: 100%;
+max-width: 500px;
+position: relative;
+z-index: 2;
+}
+
+.dark-eyebrow {
+color: #c5a55d;
+}
+
+.venue-scene h2 {
+font-family: “Playfair Display”, serif;
+font-size: clamp(38px, 10vw, 52px);
+font-weight: 400;
+margin-bottom: 30px;
+}
+
+.venue-card {
+width: 100%;
+padding: 38px 22px;
+border: 1px solid rgba(211, 179, 99, .45);
+background: rgba(255, 255, 255, .035);
+backdrop-filter: blur(10px);
+}
+
+.location-icon {
+font-size: 40px;
+color: #d6b766;
+}
+
+.venue-name {
+margin-top: 12px;
+font-family: “Playfair Display”, serif;
+font-size: 21px;
+letter-spacing: 5px;
+color: #d6b766;
+}
+
+.venue-divider {
+width: 55px;
+height: 1px;
+background: #b9944d;
+margin: 18px auto;
+}
+
+.address {
+font-size: clamp(17px, 4.5vw, 20px);
+line-height: 1.5;
+color: #d9d9cb;
+}
+
+.direction-button {
+display: inline-block;
+margin-top: 27px;
+padding: 13px 20px;
+border: 1px solid #c8a85e;
+color: #e4cc8b;
+text-decoration: none;
+font-family: “Cormorant Garamond”, serif;
+font-size: 13px;
+letter-spacing: 2px;
+transition: .3s ease;
+}
+
+.direction-button:active {
+transform: scale(.96);
+background: #c8a85e;
+color: #092017;
+}
+
+/* ================= VENUE RING ================= */
+
+.venue-ring {
+position: absolute;
+width: min(450px, 85vw);
+height: min(450px, 85vw);
+border: 1px solid rgba(211, 179, 99, .16);
+border-radius: 50%;
+animation: rotateRing 25s linear infinite;
+}
+
+@keyframes rotateRing {
+
+to {
+    transform: rotate(360deg);
+}
+
+}
+
+/* ================= CLOSING ================= */
+
+.closing {
+background:
+radial-gradient(
+circle at center,
+#173d2b,
+#06130f 68%
+);
+}
+
+.closing-glow {
+position: absolute;
+width: 350px;
+height: 350px;
+max-width: 80vw;
+max-height: 80vw;
+border-radius: 50%;
+background: rgba(202, 169, 91, .10);
+filter: blur(75px);
+}
+
+.closing-content {
+position: relative;
+z-index: 2;
+width: 100%;
+}
+
+.small-bismillah {
+font-size: 22px;
+color: #d7bd78;
+}
+
+.closing-star {
+margin: 25px 0;
+color: #c9a85c;
+font-size: 23px;
+}
+
+.thank-you {
+font-family: “Playfair Display”, serif;
+font-size: clamp(29px, 8vw, 43px);
+line-height: 1.25;
+}
+
+.ornament {
+margin: 27px 0;
+color: #c9a85c;
+letter-spacing: 5px;
+}
+
+.regards {
+color: #aaa994;
+font-size: 18px;
+}
+
+.closing h2 {
+margin-top: 6px;
+font-family: “Playfair Display”, serif;
+font-size: clamp(29px, 8vw, 38px);
+font-weight: 400;
+color: #e0c47d;
+}
+
+.closing-az {
+margin-top: 42px;
+color: #9fa497;
+font-size: 12px;
+letter-spacing: 6px;
+}
+
+/* ================= IPHONE RESPONSIVE FIX ================= */
+
+@media (max-width: 430px) {
+
+.scene {
+    padding: 50px 18px;
+}
+.invitation::before {
+    inset: 10px;
+}
+.invitation h1 {
+    font-size: 38px;
+    line-height: 1.05;
+}
+.invitation h1 span {
+    margin-top: 8px;
+}
+.invite-text {
+    font-size: 18px;
+}
+.date-area {
+    gap: 11px;
+}
+.date-number {
+    font-size: 50px;
+}
+.date-details {
+    padding-left: 11px;
+}
+.date-details strong {
+    font-size: 14px;
+}
+.date-evening {
+    width: 100%;
+    margin-top: 5px;
+}
+.venue-card {
+    padding: 32px 17px;
+}
+
+}
